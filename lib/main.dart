@@ -1,40 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_canvas/screen/home_screen.dart';
 
 void main() {
-  runApp(MainApp());
+  runApp(HomeScreen());
 }
 
-class MainApp extends StatelessWidget {
+abstract class BaseScreen extends StatefulWidget {
+  Widget getContent(BuildContext baseContext);
   @override
+  State<StatefulWidget> createState() => _BaseScreenState();
+}
+
+class _BaseScreenState extends State<BaseScreen>{
+   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Canvas',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MainHomePage(title: 'Flutter Canvas'),
-    );
-  }
-}
-
-class MainHomePage extends StatefulWidget {
-  MainHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MainHomePageState createState() => _MainHomePageState();
-}
-
-class _MainHomePageState extends State<MainHomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
+      home: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+        child: widget.getContent(context),
       ),
     );
   }
