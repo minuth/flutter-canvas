@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_canvas/main.dart';
 import 'package:flutter_canvas/model/source_code.dart';
+import 'package:share/share.dart';
 
 class SourceCodeViewScreen extends BaseScreen {
   final SourceCode _sourceCode;
@@ -14,7 +15,7 @@ class SourceCodeViewScreen extends BaseScreen {
 
 class _SourceCodeViewScreenContent extends StatefulWidget {
   final BuildContext baseContext;
-  final sourceCode;
+  final SourceCode sourceCode;
 
   _SourceCodeViewScreenContent(this.baseContext,this.sourceCode);
   @override
@@ -119,7 +120,10 @@ class _SourceCodeViewScreenContentState extends State<_SourceCodeViewScreenConte
            )
          ]
         ),
-      )
+      ),
+      floatingActionButton: FloatingActionButton(child: Icon(Icons.share) ,onPressed: (){
+        Share.share(widget.sourceCode.getShareSourceCodeUrl(), subject: "Flutter Canvas");
+      }),
     );
   }
 

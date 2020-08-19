@@ -11,10 +11,9 @@ class CanvasItemViewer extends StatelessWidget {
       children: List.generate(items.length, (index) => Card(
         elevation: 10,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            items[index].widget,
-            Padding(padding: EdgeInsets.all(5),
+             Padding(padding: EdgeInsets.all(5),
             child: Row(
               children: [
                 Expanded(child: Text(items[index].description, style: TextStyle(fontStyle: FontStyle.italic),)),
@@ -36,7 +35,8 @@ class CanvasItemViewer extends StatelessWidget {
                     },
                 ),
               ],
-            ))
+            )),
+            items[index].widget,
           ],
         ),
       )),

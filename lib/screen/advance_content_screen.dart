@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_canvas/model/custom_widget_item.dart';
 import 'package:flutter_canvas/model/source_code.dart';
 import 'package:flutter_canvas/widget/advance/analog_clock.dart';
+import 'package:flutter_canvas/widget/advance/arrow_circle.dart';
 import 'package:flutter_canvas/widget/advance/circle_progressbar.dart';
 import 'package:flutter_canvas/widget/advance/circle_star.dart';
 import 'package:flutter_canvas/widget/advance/circle_travell.dart';
@@ -14,8 +15,10 @@ import 'package:flutter_canvas/widget/advance/google_icon.dart';
 import 'package:flutter_canvas/widget/advance/open_umbrellar.dart';
 import 'package:flutter_canvas/widget/advance/open_umbrellar_animation.dart';
 import 'package:flutter_canvas/widget/advance/pei_chart.dart';
+import 'package:flutter_canvas/widget/advance/rounded_lifecycle.dart';
 import 'package:flutter_canvas/widget/advance/segmented_ring.dart';
 import 'package:flutter_canvas/widget/advance/speed_tracker.dart';
+import 'package:flutter_canvas/widget/advance/sun_rise.dart';
 import 'package:flutter_canvas/widget/utils/canvas_item_viewer.dart';
 
 class AdvanceContentScreen extends StatelessWidget {
@@ -37,6 +40,10 @@ class AdvanceContentScreen extends StatelessWidget {
       CustomWidgetItem(widget: SegmentedRing(), sourceCode: SourceCode(widgetSourceCodePath: _getWidgetPath("segmented_ring"), painterSourceCodePath: _getPainterPath("segmented_ring_painter"))),
       CustomWidgetItem(widget: OpenUmbrellar(), sourceCode: SourceCode(widgetSourceCodePath: _getWidgetPath("open_umbrellar"), painterSourceCodePath: _getPainterPath("open_umbrellar_painter"))),
       CustomWidgetItem(widget: OpenUmbrellarAnimation(), sourceCode: SourceCode(widgetSourceCodePath: _getWidgetPath("open_umbrellar_animation"), painterSourceCodePath: _getPainterPath("open_umbrellar_animation_painter"))),
+      CustomWidgetItem(widget: RoundedLifeCycle(), sourceCode: SourceCode(widgetSourceCodePath: _getWidgetPath("rounded_lifecycle"), painterSourceCodePath: _getPainterPath("rounded_lifecycle_painter"))),
+      CustomWidgetItem(widget: ArrowCircle(), sourceCode: SourceCode(widgetSourceCodePath: _getWidgetPath("arrow_circle"), painterSourceCodePath: _getPainterPath("arrow_circle_painter"))),
+      CustomWidgetItem(widget: SunRise(), sourceCode: SourceCode(widgetSourceCodePath: _getWidgetPath("sun_rise"), painterSourceCodePath: _getPainterPath("sun_rise_painter"))),
+
     ];
     return CanvasItemViewer(items: items);
   }
