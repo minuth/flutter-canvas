@@ -13,5 +13,5 @@ class SourceCode {
     String content = "Flutter Canvas\n\n Widget: ${_getUrl(widgetSourceCodePath)}\nPainter: ${_getUrl(painterSourceCodePath)}\nUtils: ${_getUrl(utilsSourceCodePath)}";
     return content;
   }
-  String _getUrl(String path) => "$GITHUB_REPO/$path";
+  String _getUrl(String path) => "$GITHUB_SOURCE_CODE_URL/$path";
 }
